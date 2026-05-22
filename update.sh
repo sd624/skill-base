@@ -104,7 +104,8 @@ added=0
 updated=0
 conflicts=0
 
-for repo in "${ACTIVE_REPOS[@]}"; do
+declare -a REPOS_FOR_SYMLINKS=("$BOOTSTRAP_REPO" "${ACTIVE_REPOS[@]}")
+for repo in "${REPOS_FOR_SYMLINKS[@]}"; do
   skills_src="$REPOS_DIR/$repo/skills"
   [[ -d "$skills_src" ]] || continue
   for skill_dir in "$skills_src"/*/; do
@@ -139,4 +140,45 @@ for repo in "${ACTIVE_REPOS[@]}"; do
 done
 
 log "Symlink-Sync: $added neu, $updated aktualisiert, $removed entfernt, $conflicts Konflikte"
+
+# ── 4. Daily-Briefing-Hook idempotent sicherstellen ────────────────────────────
+ensure_hook() {
+  local settings="$HOME/.claude/settings.json"
+  local hook_cmd="$REPOS_DIR/$BOOTSTRAP_REPO/daily-briefing.sh"
+
+  [[ -x "$hook_cmd" ]] || chmod +x "$hook_cmd" 2>/dev/null || return 0
+  command -v python3 &>/dev/null || { log "python3 fehlt — überspringe Hook-Setup"; return 0; }
+
+  mkdir -p "$(dirname "$settings")"
+  [[ -f "$settings" ]] || echo "{}" > "$settings"
+
+  python3 - "$settings" "$hook_cmd" <<'PYEOF'
+import json, sys
+settings_path, hook_cmd = sys.argv[1], sys.argv[2]
+try:
+    with open(settings_path) as f:
+        s = json.load(f)
+except Exception:
+    s = {}
+s.setdefault("hooks", {})
+session_start = s["hooks"].setdefault("SessionStart", [])
+already = any(
+    any(h.get("command", "").endswith("daily-briefing.sh") for h in entry.get("hooks", []))
+    for entry in session_start
+)
+if not already:
+    session_start.append({
+        "matcher": "startup",
+        "hooks": [{"type": "command", "command": hook_cmd}]
+    })
+    with open(settings_path, "w") as f:
+        json.dump(s, f, indent=2)
+    print("added")
+else:
+    print("present")
+PYEOF
+}
+hook_state="$(ensure_hook 2>&1)"
+log "Daily-Briefing-Hook: ${hook_state:-übersprungen}"
+
 log "─── Update beendet ───"

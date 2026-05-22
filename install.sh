@@ -147,7 +147,8 @@ handle_conflict() {
   esac
 }
 
-for repo in "${ACCESSIBLE_REPOS[@]}"; do
+declare -a REPOS_FOR_SYMLINKS=("$BOOTSTRAP_REPO" "${ACCESSIBLE_REPOS[@]}")
+for repo in "${REPOS_FOR_SYMLINKS[@]}"; do
   skills_src="$REPOS_DIR/$repo/skills"
   [[ -d "$skills_src" ]] || continue
   for skill_dir in "$skills_src"/*/; do
