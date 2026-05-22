@@ -103,6 +103,8 @@ Du darfst Skills vorschlagen — der Workflow ist:
 
 Wenn du dir unsicher bist: einfach kurz Simon fragen.
 
+> **Wichtig:** Bitte **nicht direkt nach `main` pushen**, auch wenn du technisch dürftest. Immer den Branch+PR-Weg gehen — so kann Simon vor dem Merge gegenlesen und es bleibt nachvollziehbar, was wann reinkam.
+
 ---
 
 ## Deinstallation
