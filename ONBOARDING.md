@@ -10,6 +10,7 @@ Du brauchst dafür **keine Programmierkenntnisse** — einfach Schritt für Schr
 
 - Ein **Mac** (macOS)
 - **Claude Code** ist bei dir installiert und eingerichtet
+- **Homebrew** (ein Helfer-Programm) — falls noch nicht vorhanden, installierst du es in Schritt 3
 - Ca. 10 Minuten Zeit
 
 ---
@@ -43,9 +44,35 @@ Fertig — du hast jetzt Zugriff.
 
 ---
 
-## Schritt 3 — Skill Base installieren
+## Schritt 3 — Homebrew installieren (einmalig, nur falls noch nicht vorhanden)
 
-1. **Terminal öffnen:** Drücke `Cmd` + `Leertaste`, tippe „Terminal", Enter.
+**Homebrew** ist ein kleines Helfer-Programm, über das der Installer die nötigen Werkzeuge nachlädt. Viele Macs haben es schon — viele aber auch nicht.
+
+**So prüfst du, ob es schon da ist:** Terminal öffnen (`Cmd` + `Leertaste` → „Terminal" → Enter) und eingeben:
+
+```bash
+brew --version
+```
+
+- Erscheint eine Versionsnummer (z. B. `Homebrew 4.x`) → alles gut, **weiter mit Schritt 4**.
+- Kommt „command not found" → Homebrew fehlt. Dann diesen Befehl ausführen:
+
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+   Hinweise dazu:
+   - Du wirst nach deinem **Mac-Passwort** gefragt (das, mit dem du dich am Mac anmeldest) — das ist normal.
+   - Die Installation dauert **ein paar Minuten**.
+   - Am Ende zeigt Homebrew evtl. zwei „Next steps"-Zeilen mit `echo …` an — **die bitte ausführen** (kopieren, Enter), damit `brew` sofort funktioniert. Danach `brew --version` nochmal testen.
+
+> Bei Problemen mit Homebrew: kurz Simon melden, das ist schnell gelöst.
+
+---
+
+## Schritt 4 — Skill Base installieren
+
+1. **Terminal öffnen** (falls noch nicht offen): `Cmd` + `Leertaste`, „Terminal", Enter.
 2. **Diesen einen Befehl** hineinkopieren und Enter drücken:
 
    ```bash
@@ -53,8 +80,7 @@ Fertig — du hast jetzt Zugriff.
    ```
 
 3. Der Installer führt dich durch:
-   - Falls **Homebrew** fehlt: er sagt dir, wie du es installierst (einmalig)
-   - Er installiert die **GitHub CLI** (`gh`) automatisch
+   - Er prüft Homebrew (hast du in Schritt 3 erledigt) und installiert die **GitHub CLI** (`gh`) automatisch
    - Er öffnet den **Browser zum GitHub-Login** — dort einfach einloggen und bestätigen
    - Er lädt die für dich freigeschalteten Skills herunter
    - Er richtet das **tägliche Auto-Update um 8:00 Uhr** ein
@@ -63,7 +89,7 @@ Wenn am Ende eine grüne Box „Skill Base ist eingerichtet!" erscheint: geschaf
 
 ---
 
-## Schritt 4 — Testen
+## Schritt 5 — Testen
 
 Öffne Claude Code und frag einfach:
 
