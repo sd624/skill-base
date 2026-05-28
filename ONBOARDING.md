@@ -20,12 +20,14 @@ GitHub ist die Plattform, über die die Skills sicher geteilt werden.
 
 1. Gehe auf **[github.com](https://github.com)**
 2. Klicke oben rechts auf **Sign up**
-3. E-Mail eingeben (am besten deine Firmen-Mail), Passwort wählen, Benutzernamen festlegen
-4. E-Mail-Bestätigung von GitHub anklicken
+3. **Wichtig:** Verwende **genau die E-Mail-Adresse, an die Simon dir die Einladung geschickt hat** (z. B. deine `@kissconcepts.de`-Adresse). Nur dann wird die Einladung automatisch mit deinem neuen Account verknüpft.
+4. Passwort wählen, Benutzernamen festlegen, E-Mail-Bestätigung von GitHub anklicken
 
-> Schon einen Account? Dann diesen Schritt überspringen.
+> Schon einen Account mit deiner Firmen-Mail? Dann diesen Schritt überspringen.
 
-**Wichtig:** Sag Simon, mit welcher **E-Mail-Adresse** du deinen Account hast — damit er dich einladen kann.
+### Reihenfolge spielt keine Rolle
+
+Du kannst den Account **auch erst dann anlegen, wenn die Einladung schon da ist** — dann führt dich die Einladungs-E-Mail direkt durch die Registrierung (siehe Schritt 2). Wichtig ist nur: immer dieselbe E-Mail-Adresse verwenden.
 
 ---
 
