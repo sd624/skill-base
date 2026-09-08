@@ -25,7 +25,16 @@ Logo und Schriften sind im Skill gebündelt und werden ins PDF eingebettet. Das 
 sieht auf jedem Rechner gleich aus, auch ohne installierte Fredoka — wichtig, weil diese
 Dokumente im Team weitergegeben werden.
 
-Voraussetzungen: `pandoc` und Google Chrome. Beides ist auf Simons Rechner vorhanden.
+**Voraussetzungen:** `pandoc` und Google Chrome. Chrome ist meist vorhanden, pandoc oft
+nicht. Prüfe es vor dem ersten Lauf und installiere es bei Bedarf — das dauert unter einer
+Minute:
+
+```bash
+which pandoc || brew install pandoc
+```
+
+Fehlt Homebrew, verweise auf die Installationsanleitung im Skill-Base-README. Fredoka muss
+nicht installiert werden, die Schrift steckt im Skill.
 
 ## Frontmatter
 
