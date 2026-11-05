@@ -1,4 +1,9 @@
-# Markenreferenz Skill Me Now
+# Markenreferenz
+
+Inhalt: Skill Me Now (Farben, Schrift, Logo) · KISSconcepts (Farben, Schrift, Logo, Ampel) ·
+HTML-Bausteine · Freigabeliste
+
+# Skill Me Now
 
 ## Farben
 
@@ -53,6 +58,67 @@ from PIL import Image
 im = Image.open(quelle).convert("RGBA")
 im.crop(im.split()[3].getbbox()).save(ziel)   # Alphakanal liefert die Bounding-Box
 ```
+
+# KISSconcepts
+
+Dachmarke der KISSconcepts GmbH, Pfronten. „KISS — Keep It Short and Simple“: sachlich,
+schwarz auf weiß, ein einziger Farbakzent. Die Website kissconcepts.de ist dunkel; im
+Druck wird daraus Schwarz auf Weiß.
+
+## Farben
+
+| Rolle | Hex | Einsatz |
+|---|---|---|
+| Tinte | `#0a0a0b` | Text, Überschriften, Tabellenköpfe, Kopflinie |
+| Cyan | `#00BCD4` | einziger Akzent: Punkt im Logo, Strich unter dem Kopf, Titelpunkt, Kante der Hinweiskästen |
+| Petrol | `#007f8c` | Links und kleine Akzenttexte (Cyan ist als Schrift auf Weiß zu blass) |
+| Cyan hell | `#e8f8fa` | Hintergrund der Hinweiskästen |
+| Grau | `#5f6168` | Untertitel, Kontexttext, Fußnoten |
+| Linien | `#d9dcdf` | Tabellenrahmen, Trennlinien |
+| Zebra | `#f5f6f7` | jede zweite Tabellenzeile, Kästen |
+
+`#00BCD4` ist der exakte Wert aus dem Logo-SVG; das PNG zeigt durch Kantenglättung
+`#13B8C7`. Gold `#e8c84a` (STARSCAN) und Hellblau `#5bc8f5` (Skill Me Now) gehören den
+Töchtern — in Dokumenten der Dachmarke nicht verwenden.
+
+## Schrift
+
+Inter als variable Schrift (`assets/fonts/Inter-latin.woff2` und `Inter-latin-ext.woff2`),
+eingebettet als `InterKISS`, Gewichte frei wählbar. Fließtext 9,8 pt / 1,5, Titel 700,
+Abschnitte 700, Unterabschnitte 650, Hervorhebungen 620.
+
+## Logo
+
+`assets/kissconcepts-logo.png`, 951 × 354 px, schwarz mit cyanfarbenem Punkt, transparent,
+Ränder beschnitten. Wird mit 36 px Höhe im Kopf eingesetzt.
+
+Original: `Geteilte Ablagen/KISSconcepts/Logo/KISSconcepts Logo s_trans.png`. Im selben
+Ordner liegen die weiße Fassung für dunkle Hintergründe (`w_trans`) und Varianten mit
+Hintergrund (`s_w`, `w_schwarz`).
+
+## Ampel (nur KISSconcepts)
+
+Die Klassen sind nur im KISSconcepts-Stil definiert; Skill-Me-Now-Dokumente bleiben ohne
+Ampel.
+
+| Stand | Etikett | Kante / Hintergrund |
+|---|---|---|
+| offen, muss entschieden werden | `#b42318` auf `#fcebe8` | `#b42318` / `#fcebe8` |
+| Details offen | `#8a5100` auf `#fcecc8` | `#d99a2b` / `#fdf5e4` |
+| geklärt | `#1b6b44` auf `#e3f2e9` | `#1b6b44` / weiß |
+
+```html
+<span class="ampel rot">offen</span> <span class="ampel gelb">Details offen</span> <span class="ampel gruen">geklärt</span>
+
+<div class="zeile-rot"><b>4 · Beispielthema</b> — muss noch entschieden werden. ☐ besprochen</div>
+
+<tr class="gelb"><td>…</td></tr>
+```
+
+Rot nur für das, was wirklich noch entschieden werden muss. Ist alles rot, sieht man nichts
+mehr.
+
+# Allgemein
 
 ## HTML-Bausteine
 
